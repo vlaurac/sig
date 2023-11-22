@@ -1,0 +1,25 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Editar Archivo{% endblock %}
+
+{% block content %}
+  <div class="content" style="max-width: 800px; margin: 0 auto;">
+    <h1 style="text-align: center; color: #333; margin-bottom: 30px; font-size: 28px;">Editar Archivo</h1>
+    <table style="width: 100%; border-collapse: collapse; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); font-size: 16px;">
+      <tr>
+        <td style="padding: 30px; border: 1px solid #ddd; text-align: center;">
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table style="width: 100%; margin-bottom: 30px;">
+              {{ form.as_table }}
+            </table>
+            <button type="submit" style="background-color: #007bff; color: #fff; padding: 15px 20px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s; font-family: 'Arial', sans-serif; font-weight: bold; font-size: 18px;">
+              Guardar cambios
+              <span style="margin-left: 8px; font-size: 20px;">✏️</span> 
+            </button>
+          </form>
+        </td>
+      </tr>
+    </table>
+  </div>
+{% endblock %}

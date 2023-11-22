@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenidos a SIG Grande</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        h1 {
+            position: relative;
+            text-align: center;
+        }
+
+        .big-book-container {
+            width: 300px;
+            height: 450px;
+            position: relative;
+            margin: 20px auto;
+            perspective: 1000px;
+            animation: bookAnimation 3s infinite alternate;
+        }
+
+        .big-book {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+        }
+
+        .cover {
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+            border-radius: -100px -100px -100px -100px; /* Ajusta los valores para obtener la forma deseada */
+            position: absolute;
+        }
+
+        .page {
+            width: 50%;
+            height: 100%;
+            background-color: #fff;
+            position: absolute;
+            top: 0;
+            transform-style: preserve-3d;
+        }
+
+        .page-left {
+            left: 0;
+            transform: rotateY(0deg);
+        }
+
+        .page-right {
+            right: 0;
+            transform: rotateY(-180deg);
+        }
+
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+
+        @keyframes bookAnimation {
+            0% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(-10deg);
+            }
+        }
+
+        h1::after {
+            content: "El pilar de SIG: Cuidarse entre sí";
+            display: block;
+            font-size: 18px;
+            color: #333;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Bienvenidos a SIG Grande</h1>
+    </header>
+
+    <div class="big-book-container">
+        <div class="big-book">
+            <div class="cover"></div>
+            <div class="page page-left"></div>
+            <div class="page page-right"></div>
+            <div class="text">el pilar de sig es cuidarse entre si</div>
+        </div>
+    </div>
+
+    <section>
+        <h2>¿Qué es SIG?</h2>
+        <p>SIG Grande es un lugar donde...</p>
+
+        <h2>Historia</h2>
+        <p>La historia de SIG Grande comenzó...</p>
+
+        <h2>Imágenes</h2>
+        <img src="imagen1.jpg" alt="Descripción de la imagen 1">
+        <img src="imagen2.jpg" alt="Descripción de la imagen 2">
+        <!-- Agrega más imágenes según sea necesario -->
+    </section>
+
+</body>
+
+</html>

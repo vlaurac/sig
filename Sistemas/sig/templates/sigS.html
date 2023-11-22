@@ -1,0 +1,196 @@
+<!-- sigS.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #2c3e50;
+            color: white;
+            padding-top: 20px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+        }
+
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #34495e;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            
+        }
+
+        .card-container {
+            width: 200px;
+            height: 300px;
+            perspective: 1000px;
+            margin: 20px;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+            transition: transform 0.5s;
+        }
+
+        .card:hover {
+            transform: rotateY(180deg);
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #333;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .front {
+            transform: rotateY(0deg);
+        }
+
+        .back {
+            transform: rotateY(180deg);
+        }
+        .card-face img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+        }/* ... (tu código CSS actual) ... */
+    </style>
+</head>
+
+<body>  
+    <div class="container">
+        <div class="sidebar">
+            <h2>Menú</h2>
+            <a href="#">inicio</a>
+            <a href="#" class="sistemas-link">sistemas</a>
+            <a href="#">documentacion</a>
+        </div>
+
+        <div class="content">
+
+            <div class="card-container">
+                <a href="sitem/calidad.html" class="sistemas-card-link">
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="card-face front">Tarjeta 2</div>
+                            <div class="card-face back">
+                                <p>Información adicional 2</p>
+                                <p>Más detalles sobre la tarjeta 2.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card-container">
+                <a href="sitem/calidad.html" class="sistemas-card-link">
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="card-face front">Tarjeta 2</div>
+                            <div class="card-face back">
+                                <p>Información adicional 2</p>
+                                <p>Más detalles sobre la tarjeta 2.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card-container">
+                <a href="sitem/calidad.html" class="sistemas-card-link">
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="card-face front">Tarjeta 2</div>
+                            <div class="card-face back">
+                                <p>Información adicional 2</p>
+                                <p>Más detalles sobre la tarjeta 2.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Otras tarjetas similares... -->
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Agrega un evento de clic a los enlaces con la clase 'sistemas-card-link'
+            var sistemasCardLinks = document.querySelectorAll('.sistemas-card-link');
+            sistemasCardLinks.forEach(function (cardLink) {
+                cardLink.addEventListener('click', function (event) {
+                    event.preventDefault(); // Previene el comportamiento predeterminado del enlace
+
+                    // Solicitar el número de ficha al usuario
+                    var numeroFicha = prompt('Por favor, ingrese su número de ficha:');
+                    var nombreaprendiz = prompt('Por favor, nombre completo de el aprendiz:');
+                    var numeroidentificaccion = prompt('Por favor, ingrese su número  de identificaccion:');
+
+                    // Verificar el número de ficha (puedes agregar tu lógica de verificación aquí)
+                    if (numeroFicha === '1234') {
+                        // Redirigir a la página correspondiente si el número de ficha es correcto
+                        window.location.href = cardLink.href;
+                    } else {
+                        // Mostrar un mensaje de acceso denegado si el número de ficha es incorrecto
+                        alert('Acceso denegado. Número de ficha incorrecto.');
+                    }
+                });
+            });
+        });
+    </script>
+    
+</body>
+
+</html>
