@@ -4,156 +4,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenidos a SIG Grande</title>
+    <title>Bienvenidos a SIG </title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: #282c35;
+            color: #fff;
         }
 
         header {
-            background-color: #333;
+            background-color: #1a1e24;
             color: #fff;
             text-align: center;
             padding: 1em;
         }
 
-        h1 {
-            position: relative;
-            text-align: center;
-        }
-
-        .big-book-container {
-            width: 300px;
-            height: 450px;
-            position: relative;
-            margin: 20px auto;
-            perspective: 1000px;
-            animation: bookAnimation 3s infinite alternate;
-        }
-
-        .big-book {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            transform-style: preserve-3d;
-        }
-
-        .cover {
-            width: 100%;
-            height: 100%;
-            background-color: #333;
-            border-radius: -100px -100px -100px -100px; /* Ajusta los valores para obtener la forma deseada */
-            position: absolute;
-        }
-
-        .page {
-            width: 50%;
-            height: 100%;
-            background-color: #fff;
-            position: absolute;
-            top: 0;
-            transform-style: preserve-3d;
-        }
-
-        .page-left {
-            left: 0;
-            transform: rotateY(0deg);
-        }
-
-        .page-right {
-            right: 0;
-            transform: rotateY(-180deg);
-        }
-
-        .text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 24px;
-            color: #333;
-            text-align: center;
-        }
-
-        @keyframes bookAnimation {
-            0% {
-                transform: rotateY(0deg);
-            }
-            100% {
-                transform: rotateY(-10deg);
-            }
-        }
-
-        h1::after {
-            content: "El pilar de SIG: Cuidarse entre sí";
-            display: block;
-            font-size: 18px;
-            color: #333;
-        }
-
         section {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: #363b44;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
+        .main-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
         }
+
+        .feature-card {
+            width: 300px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #1a1e24;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .feature-card img {
+            width: 100%; /* Ajustar el ancho de la imagen al 100% del contenedor */
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background-color: #1a1e24;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .carousel-container {
+            width: 80%;
+            margin: 20px auto;
+            overflow: hidden;
+            text-align: center; /* Centrar el carrusel */
+        }
+
+        .carousel {
+            display: flex;
+            animation: carouselAnimation 1s infinite linear;
+        }
+
+        .carousel-item {
+            width: 100%;
+            min-width: 100%;
+            flex: 0 0 auto;
+        }
+
+        .carousel-item img {
+            width: 30%; /* Ajustar el ancho de la imagen al 60% del carrusel */
+            height: auto;
+            border-radius: 0px;
+            margin: 0 auto; /* Centrar la imagen dentro del carrusel */
+        }
+
+        @keyframes carouselAnimation {
+            0% {
+                transform: translateX(0%);
+            }
+            25% {
+                transform: translateX(0%);
+            }
+            50% {
+                transform: translateX(-100%);
+            }
+            75% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
         button {
-           background-color: #4CAF50;
-           color: white;
-           padding: 10px 20px;
-           border: none;
-           border-radius: 5px;
-           cursor: pointer;
+            background-color: #45a049;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            display: block; /* Para asegurar que el botón esté en una nueva línea */
+            margin: 0 auto; /* Centrar el botón */
         }
 
         button:hover {
-           background-color: #45a049;
+            background-color: #4CAF50;
         }
 
+        .center-container {
+            text-align: center;
+            width: 100%;
+        }
+
+        h2.centered {
+            display: inline-block;
+            background-color: #1a1e24;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: -30px;
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Bienvenidos a SIG Grande</h1>
-    </header>
-
-    <div class="big-book-container">
-        <div class="big-book">
-            <div class="cover"></div>
-            <div class="page page-left"></div>
-            <div class="page page-right"></div>
-            <div class="text">el pilar de sig es cuidarse entre si</div>
+        <h1>Bienvenidos a SIG</h1>
+        <div class="center-container">
+            <h2 class="centered">Sistema de calidad medio ambiente seguridad y salud ocupacional</h2>
         </div>
-    </div>
+    </header>
 
     <button onclick="window.location.href='{% url 'login' %}'">Login</button>
 
 
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYuX2BDNYNeJWCYGRxzzDmKWpzVxyb-FkkQQ&usqp=CAUg" alt="Carrusel 1">
+            </div>
+            <div class="carousel-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrQWg4KhE03duK76NhYl4hcMs1V4u-KQqOMw&usqp=CAU" alt="Carrusel 2">
+            </div>
+            <div class="carousel-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCYnH1ruMSgkhVmWMSnLYFzE_LUuqcP11UCA&usqp=CAU" alt="Carrusel 3">
+            </div>
+        </div>
+    </div>
+
     <section>
-        <h2>¿Qué es SIG?</h2>
-        <p>SIG Grande es un lugar donde...</p>
-
-        <h2>Historia</h2>
-        <p>La historia de SIG Grande comenzó...</p>
-
-        <h2>Imágenes</h2>
-        <img src="imagen1.jpg" alt="Descripción de la imagen 1">
-        <img src="imagen2.jpg" alt="Descripción de la imagen 2">
-        <!-- Agrega más imágenes según sea necesario -->
+        <div class="main-container">
+            <div class="feature-card">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhASEhEVFRUXFxUYFRYWFRgaFhgVFxgWFxYXGBUYHSggGholHRcXITEhJSkrLi8uGB8zOD8tNygtLisBCgoK
+                Dg0OGxAQGy8lICUtLS0tLS0vLS0tMC0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALcBFAMBIgACEQEDEQH/xAAcAAEAAgIDAQAAAAAAAAAAAAAABQYEBwECAwj/xABFEAACAQ
+                MBBQQHBgIIBAcAAAABAgMABBESBQYTITEiQVFhBxQycYGRoSNCUmJyscHRFRYkM1OCkuFDotLwFyVEY3OT8f/EABsBAQACAwEBAAAAAAAAAAAAAAADBQIEBgEH/8QANREAAgECAwUFCAEEAwAAAAAAAAECAxE
+                EITEFEkFRYTKBkaHREyJCcbHB4fBiBhRS8SMzov/aAAwDAQACEQMRAD8A3jSlKAUpSgFKUoBSlKAUpSgFKV5SyhQWYgAdSeleN2B614XFykYy7BR5n/vNVzae85OVhHL8ZH7D+dVyaVnOp2LHxJzVJi9t0qfu0lv
+                Pnw/Pd4mDnyLZd70RjlGpfzPZH86iZ95p29nCe4ZPzNQ1Ko6u1sXU+K3yy/PmYuTZmybXnPWZ/gcftV8tGyiHxVT9K1tWxNktmCI/kX9qs9g1pzqTU5N5LVt8+Z7BkRtG7dZWCvgDHL4Cuke1pR94H3gfwry2mft
+                ZPfWLXP4nHYiGJqblSS96XxO3afC9i+p0YOCulouBNQ7b/GnxB/hUjBeI/ske7vqq0FbmG/qLE08qiU14PxSt5EU8FB9nIulKrdptV1wG7Q+vzqct7lZBlT/Me8V1OC2nh8XlB2fJ6/nuNCrQnT105mRSlKsCEUr
+                wuLhY1Z3YKiglmY4AA6kk9Kwdj7etbvUbadJdONWk81z0yOozQErSlKAUrHvLpIkeSRgiICzMxwAB1JPhXS8v4oo+LJIqR9ntscL2yFXn5kgfGgMulKxWvYxKsJdeIyl1TPaKKQCwHgCR86AyqUpQClUn0nzSLHY
+                LGZvtLyJGWCUxSOpSTKCQMuM4HeOlRezrvaVrwbfA1XVxNwBdytM8MCRKw4jocudQc6dXeOdAbKpWv7TfG6d4mxb8Ka5mtUj7XHR4+IvEftYZdSZKgAhSDk1EbN30v1tbJfspZpYbi4aQo7KUiZRwyAy6WJY5fooA
+                5GgNr0qi2u9lzNMdItoIozaCVLhyJHa5RXxHIp0jTqCjk2tgRy61hS713EtrdXDerrCYb8xw8SSO7U22tc6geZOnJ06SmRzNAbHpWr9pb0z6DKugR2MdrLJG0soluGliBIDBu0oDctWoMw59M1Jne27447EIgF8LM
+                qQ/FIYArJqzpBGcFcHPiO8C+0pWLfXaxIXboO7vJ7gKxlJRTlLJIHG0L5IV1ufcO8nwFUjae05J2yxwv3VHQe/xPnXlf3zzOXY+4dwHgKxq47aO1J4huEMofXq/Tx6RSlcUpSqgxFKUoBV/3fbNvD+nHyJFUqHZ8ze
+                zE5+Bx8zVz3fiZII1dSrDVkH9RI+ldDsCE4V5b0Wk46tO2qM4LMhL45kkP5jXhWXcWkmWJQ8yT49/lWMRjryrmcVCcakpTTV29U1q+p0VOUWlZ8jrSlK1iQ5rvDKyHUpwa86V7GTi96Ls0eNXVmWTZ20BJyPJvDx86kapqEg
+                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
+                VPbobuvezhOYjXBlbwX8I/Meg+fdWLu9sKW8lEUQ83cjsoPE/wHfW8tg7GitIVhiHIcyT1Zj1Ynxqux+NVGO7HtPy6+hv4LCOq96XZXn09TMtYFjRURQqqAqqOgA5ACvelK5ovxSlKAUpSgFKUoBSlKAUpSgFKUo
+                BSlKAUpSgFKUoDxmiDgqwDKRggjIIPUEVq/e/0fMhaazBZOrQ/eX9Hiv5etbWrjFT4fEVKEt6D+a4MhrUIVo2kvwfNJHUHkR1HeD4Gutb03j3PtrzLMuiX/ETr/mHRvjzrWu3Nw7y3yVTjIPvRjnjzj6j4ZroMPtGjVyb3Xyfrp9CkrYGrTzWa6en+
+                yq16QSaWVtIbBB0sMq2DnDDvB6V1YYJB5EdQeo+Fda32jSNubd2dHtOximt1AkRcxqABgj24Tjp05eYFRm4e5wUC8uwAANUcb8goH/EkB6eIHd1PlA7hb0CylZZCeBJ7WBkqw6OB3+B+HhWTvzvobvMMGVgHUnk0h8x3KD3d9U39viIN4eHYee9yXFfP86XZbOtQklXn2llbm+Z1373wN2xhhJECnr0MhHefyeA+NU2lKtaNGFGChDRFdVqyqy3pailKmdj7sXd0RwoTp/G3ZT5nr8M1lOcY
+                K8nZdTCMZSdoq7IarPupubPeEMcxw98hHM+SDvPn0q8bu+jmCEq854zjmFxiMH9P3vjy8qu6qAAByHcKp8TtVdmj4+i+5aYfZvxVfD1Zg7H2RDaxiKFAqjqfvMfxMe81I0pVI227st0klZClKV4eilKUApSlAKUpQClKUApSlAKUpQClKUApSlAKUpQClKUApSlARm09hW1x/fQI5/EVGr4MOdVe89GNo3ON5Y/LIZfkwz9az99rqTibOt1laGO4nKSyIdLhVjd1RX+6XZQuRz8Kjm2oLFZooLz1lzcJEkcwklkiZoy5jBjBeU4X
+                VgkYycnlU1LEVaXYk19PAinQpz7UU+4iZ/RVJ9y6U/qQj6g1jn0WXX+PD/z/APTXN3vfPKr3B1xgbMuZGiSRlHFiuVj1BuqtgHzGcVIbyby3bpcCHTHHBc2cDPrbjsztAzEcsaTxNOOpGT5VsraeJXxeSIHgKH+PmzCi9FU33rmMe5GP7kVK2votgGOLPI3koVR8yCa63vpDeKWb7JJIFF3hkEoOq1QsV4jqFcnSQdIwvicVmbA2ndybQVbhowrWSSiOF2MeWk6kMPaA5Z7/ACrGW0cTL4rfJJfYyjgqEfh8cyZ2ZuhZwYKW6lh95+22fHLdPhU9XNK1JTlN3k231NiMYxVoq
+                wpSlYmQpSlAKUpQClKUApSlAKUpQClKUApSlAKUpQClKUApSlAKUpQClKUApSlAYe0dnQ3EZimiWSM4yrgEcuYOD31H/wBVbHgrB6pFwlfWqaBgPzGod+rmRnzrilAdo91rIKVFtHpKPGRjlw3bW6Y7lLc8Uu91rKWQTSWsTSdntle12PZOfEY5GlKA5j3WslkMy2sQkLMxcKMlnBDk/qBOfHNdtlbuWlsxe3t44mK6SUXB05zj3Z7q5pQEvSlKAUpSgFKUoBSlKAUpSgFKUoBSlKAUpSgP/9k"Característica 1">
+                <h3>historia sig </h3>
+                <p>La historia del Sistema de Información de Gestión (SIG) 
+                    se remonta a su implementación como un sistema integrado centrado
+                    en cumplir con normas internacionales. Cada sistema dentro de la organización
+                    se adapta a las herramientas establecidas, estableciendo criterios para abordar
+                    cambios específicos y fortalecer las necesidades de cada área. A lo largo del tiempo,
+                    ha evolucionado para satisfacer las crecientes demandas de la empresa, asegurando la
+                    protección de los recursos humanos, materiales y financieros, así como la infraestructura.</p>
+            </div>
+            <div class="feature-card">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBIVFRgVEhIYGBIZGRkZGBIYGBIYGBgRGRgZGRgaGBgcIy4lHB4rHxgYJ
+                jomKy8xNTU1HCQ7QDs0Py40NTEBDAwMEA8QHhIRGDQrISw0MTU4MTE0MTQxNjE0NDQxNjExNDQ0NDQ0MTQ0NDQ0MTQxNDE0NDQ/MT8xMT80MTExMf/AABEIAKQB
+                MwMBIgACEQEDEQH/xAAcAAABBAMBAAAAAAAAAAAAAAAABAUGBwECAwj/xABJEAACAQICBgYGBwUGBAcAAAABAgADEQQSBQYHITFREyJBYXGBFDRzkaGxMkJSYrLB
+                0SMzcoKSFRckU9LwQ6Ph4hZjg5Ois/H/xAAZAQEBAQEBAQAAAAAAAAAAAAAAAQUEAgP/xAAjEQEAAgICAgEFAQAAAAAAAAAAAQIDBBESITETBSJBgZFx/9oADAMB
+                AAIRAxEAPwC5YQhICEIQCEJwq1rbhA7EwzRH0kOkgLM0zEPSzpTr248ICqEAYQCEIQMCZifE4lUUs5AA7TEOjtO0K7FKb3Zd5HdwnmbVieJny8TesT1mfJ2mZgTM9v
+                YhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEDEIQkBCEIGlZ8qk8o0NXi/SjWpsfD5yO9P3wHE15jpo39L3w6WEOPTTU14g6bvmjVoEk0dWzKRyPwiyMur7
+                3L+UeoViaOwAuTYc5sZCNdNP5R0NNt/1iPwifPLkjHXmXxzZq4qzaTTrdrCajZKZ6gvY8zzP5R22eaHKK2IcENU3ID2IO3zMiGr+i2xWIVDvQWZzyS/Dz4S46aBQABYA
+                WA5ATk1qze05LOLTpbJac1/06iZmBMzQaYhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEDEIQkBCEIHLE0sysvMWkGqOVYqeIJB8RJ9I3rHohmvVpDr/WUfW
+                HMd8Bk6aHTRr6czHpEIdTWnNq/fG41zHPQWjXxD3O6mpGY8+4QJRq1RIpZiN7m/8vZHiaIgAAAsALAchOOOxa0kZ3NlUXJiZ4jmSZiI5k1a0aZGHpmx/aNuUfM+UqTE12
+                YlnJJNyb/GLdNaSbEVWck2J6qnsQcBFWqmi/SMQoYXpp135Gx3L5n5TJy3nPkisemHmvbYyxWPSd6j6H6CiGYftKlmbuH1V8rn3yUTRR7ptealKxWsVhtY6xSsVhtCYmZ7
+                exNS044jEBRIHrLtGw2GYouapUG4omWwP3nJsPjAn5qjnMdOvOUTi9qGMY/s6aIOy+Zz793yiVdpOkOdM/yH9YHoIVBNwZRmA2q11P7agrLzRyp9xBv75Y+qOuFDHBuiLB0
+                tnpuAGUHgdxII3HgYEtmCYAxl1l0t6NQqVsubIhfJe17DhfsgPOYTIMpb+9x7+qf83/sloat6V9JoU62XL0iK+S98uYXtftgPUJiZgEJozgRvx2lKdNSzuFUDexIAHmYDkTNDUErXS+1DCUyVph6rc0Chf6mI+AMjW
+                J2r1yf2eGUD77sT7gsC7ulHObBxKD/vQxt/3dPw6/zvFmG2rVwevhlI5q7A+4r+cC8cwm0rHRG1PCOQtUPSP2nClP6lJsPECWNh6oYXB3dnhAUQhCBiEISAhCEAhMEgRvxWN7FPn+kBDp7Q1BwXJCVOxhbrHvHbIkmin
+                7TJQ6hjcm55ma9GIRH00VzMk2j9Iimqp0YCj7Jt8Oc4GnONUgQJHh8Wjjcd/I8ZX2vmm879Ah6i/TPN+weA+c7aS00aSkoevwXx5yD1KhYkk3JNyeZPGcO5m4jpDO3tjrHSv7B5y09Q9FdDQDsOvVs55hfqj3fOVvofCr
+                WrIjNZCbuxNgEXef0l14YqVGU9WwtblPGlj92l4+n4vM3l3EIQmi1ROdZrC86Rt0zXyIzdgUk+ABP5Siq9p2t1RXOFoOVNgalRTYgNwQEcN28ys8NhXqOEpoXqMdygXJ7/APrM43FNVd6jm7OxYnxP6WlobJtDp0bV2F3di
+                oPJFJFvMyqa9F7MKzgGtWCE/URcxHcWJA+EcamyhLdXEOD3ohEt2jRAE6lBIjz/AKU2bYymL0mWqB9UXR/IE2J85ONk2hKlCg71UZKj1CSrKQwRAFF/PMfOWKaImy0wIGwG6Q/aKf8ABYj2bfKTGQ3aJ6liPZt8oHnqeh9nh/
+                wWG9in4Z53E9EbPPUsN7FPwyqmAmlR7TcmQ/XnWRMJRZzYubqiX+lUtu8hxPdIhFrrrtTwi5R167A5KYPD7znsX9JSul9N4jEsWr1GbklyEUclXhEmLxL1HapUYtUY3Zj2n8h3Sc6i6iGvlr4pSKdwUpEfTH2n+7fs7bSiH6M0NicQ
+                bUKTOPtAWUeLHdJZg9mOLcXqVUT7oDufyEunA6LSmoVVAA4KAAB4CLxRHKQUr/dTUt61/wAv/uiLFbL8WoJp1qb9xDp+svnoxympojlA844HVHGLiaNOth2CNUQF7ZkyBgW6w3Dqg8bT0TgksJsuHA7J3VbQNoQhAxOdV7AnkLzpMESJKvTr65cqtK4
+                JsF35vdHqlpeoh6XEIVQjeBZsp+8BwjXpHR1CjinqKtqhsRvOUXG8gc5sK3PeDuIPaDxnwrjyRzM2c9MeSOe1v8OGI1gRx+zYZe6N76Q75AcWQlVxTYhQxtYnhxtOyaUqfXN+/gZ8I2+s9bQ5o3utut4/iwMPic0XK8hui9LpwLW8d0ktCuCOM66ZK3jm
+                su6mWl45rJc7Rvxb7opL7owaw4rIjWPWPVHid09XnrHMre0VrNp/CL6WxGd2sbqNw/M/75RAJhmkl1d0BTq0+lrM1mvkRTl3DtJmP1tmvMwwYrfYvMwbdCJ181r9g98uLRVFkpqG+la5HInskd1e0NhkdcpLFQcobfv5mS4TVxU6VirbwY/jpFWYQhPo+wjRp+iXpO
+                o+sjD3giO84YmnmFpR5QdCpKsOsCQR3jcZa+yXTCdGaDGzoSwHNHN7jwMj20rVl6FdsRTU9C5u1vqVDxB5A7j43kOwWLqUnWpScpUXgw+I7x3Sq9WUqgInaU9q3tPTcmLGRtw6RQzIT3gb1+UsfR2m6VVQ1N1dT9ZWDD4SIeoTklUHtnWBiQ3aL6liPZv8pMpDdovqWI9m/wAoHn
+                qeh9nfqWG9jT/DPPE9DbPfUsN7JPwyqlOJey/75Tz9tK0ua+LZAbpSGQD/AMwm7n5Dyl66Zr5EZjwAJ8gLzzBiKxd2cne7Fj4sSfzhDzqboX0rEohF6aEO/wDADuXzIt4XnovAYUKoAEq7Y5gR0dSqRvaoFB+4iqfm7S3qYsJBsBMwmCYGYTn0omOmXnA6wnLphzm4YQNoQhAxCEJBH9ZNDN
+                WAen+8UWy8My/rIc9WqjZGptm4ZcpveWjNDTB3kC/OwvArXTWpT5BWoXLkBnpMd+Yi5y/pIWwINiLEbiDxBl/2kV1p1TTEAvSAWtzG4N3NOLPqxb7q+2dtacW+6ntVAMc9H6Zq0yAWzJyPHyiDEUHRilRSrqbEHnOdpwRa1J8e2VW18dvE8SsHB6TSouZW8R2jykY1mxWZwgO5Rc+JjXhcQ9Ns
+                yG3Mcx3zStULMWY7ybzoybU3x9Z9uzJufJi6z7cqkmOrePRqCKDvQZSO8SISX7P9BLWz1HZggYLlG7MQLm5jTtxbg0bcX44TPVvDk5qh4fRX8zJDOdKkqqFUWUCwA5TpNRtCEIQCBEJmUNuktG06qMlRAyMLFWFwR3yo9Z9mbqS+C3jj0Ltw/gc/ImXbOb0QeIgeUsZg6tFslamyMN2Vhb3HgfKb
+                4DSFag2ejUdG5qbA+IO4+YM9K6Q0JSqjLUpo68mVSPjK21n2aJYvg+o/+WxJRu5Sfo/KVSfVbaYwYJjbAGwFZV3fzqOHiPdLcwONV1BUgg8CN4IPaJ5Zr0XRilRSrqbMpFiCOIk+2XazPTqjC1GJR99Mk3yuASV7gQOHOEXtIbtF9SxHs3+UlmHe6yJ7RPUsR7NvlIPPU9DbPPUsN7Gn+GeeZ6G2e
+                epYb2NP8MqlmubkYaseVKp+AzzWJ6c1noZ6FRPtI496kTzGsIu/ZIo9DX+N7+OaWUJVWx7FA4Zk7UqsPJlUj43lqKd0g2iDSWIKIzDiFJ8wCYviPH4fOjLzBHvBH5wKNfajjj/w6Q8qn+qa/wB5+O+xS9z/AOqPr7JFHDFP/QkTVtlgUX9If+hJQ1jafjv8ul7n/wBUsbZ1rNVxtF3rKistQoAma
+                2UIjX3k77sZQuIp5HdL3ysy355SR+UtrY16vU9u3/104Fr3hCEg2hCEgIQhAJgiZhAr3XfR61KhKizqBv5+Mr91INjuPKWhpgZqrHv+UhWmsGCcw4/Ocezg5jtX2ztvWi0dqx5MRhaZheZbJioluahUMmDTdYklj4sb/K0qammdgo4sQPfLo1bQLRAHAG3uAmho18zZpfT6eZseIQhNBqiEIQCZ
+                mJhmtKNoTn0om4MDM4V6QI3ztec6r2ECltrui0Q066izEmm3eLFlJ8LMPOV5o+sUq03G4q6N7nEsvbDjlK0qYPWLs9uSqLX97fAyttG0C9amgFy7ovPiwBlHp/Rj3QSObRPUsR7NvlJHo1LKJHNonqWI9m3ykHnqeh9nfqWG9lT/AAieeJ6H2eepYb2SfhlVJMcl1/3ynmfWTR5w+Jq0yLAOS
+                v8AAxJX4Geoai3Ep7a3q827FU1vkGSoAPqXJVvIk+RhDDsu0wKOJNJjZauXLy6Rb/MG3kJfWGq3E8oo7KwZTZlIYMOIYbwR5y89RdcaeJQKxC1l3PTuN+76S81+RkFiTFpxpVwe2drwMZREGkUGXhHC8Q6SbqwPL2kv31X2lT8bS2NjXq9T27fgpyqNJfvqvtH/ABtLX2M+r1Pbt+CnKLUh
+                CEg3hCEgIQhAIQmrmwJ7oEPxe9mPNj85HdJpJFVIjJj0vAjOksA6qtXKcjkgHvFv1jeDLh0foinUwaUqi9VlJv2gntHfK0xGgWR3QVLqrFblRcgfC8z82pM25qys+nab809S46CpZq6/d6x/KW9q9+6/mMr7RODSmLLe54seJMsPQA/YjxM6sGL468S7dfD8VOPyc4QhPs6BCEIBGfWHSAo
+                UalU8KaO5/lUm0eIyay6IXFUHouzKrixZLXFjft8OEoqHQ+1DFJuxNMVF+0vUcDv7G+Bk10dtJwTgZquQ9oe67/HhK/0xs4xlEk0rVk7LWR7d6k2PlIziND
+                4pDaphqqnmadS3vAtKL4OveBt63R/9yn8ryO6e2m4dFIoftX32tcJfvbl4SofRqn+W9/4H/SLsFq9japtTwtU/eZGRf6nsICfSmkqmJqGrVa7t2DgFHAKOwC8nGyvVtqlT0p1IRDamCPpOR1nHMC/vvFmrWzAkh8Y
+                2YcehT6J7nbtHcLeMtrA4FKahVUKALAAbgOy0BTQSwkS2iepYj2bfKTICRfXjBPVwldKaF3amwVBxZrbgJB5wnofZ56lhvZJ+ESk//CGkuHodT/4frL31JwT0sJh0qKVqLSRWU8QwUXBlEliHSODWopVgCpBBU7wQRYg
+                92+L5giQedtddTKmEcvSVnwx33sSae/g1uzhvkVw9d0ZXpsVdSCrA2IM9UYrBq4IIuCLEdhHfK41h2YUKhLYcmi/IAMhPep3jyIlEc0JtOrIAuJphwP8AiJ1W81JsfeJMsFtKwLi7Vcnc4Zf+krPH6haQpE2pdIv2kI/CTeM1XQmMQ2bC
+                VwfZVT8QLSC8W2g4C1/Sqfk14zaW2k4MCyMztyRTb+o2EqMaKxR4YWuf/Rq/6Yuw2qmkH+jhKgv2uuT8dpQ1Ymrnd3tbM7NblmJP5y29jI/w9T27fgpyN6N2YYt7dNUWmOQGdrfAAy0tTtV6eApmnTd3zOXZny3zFVXcABYWUboEnhNrQkGYTUmF5E
+                bQmhaGaFbxJpF8tNj3GKA0Qaab9i3fYQiH1K7RIUZ2CjixAHmbfnFLpFGg8PnxCX4Kc3ugTilTCqFHAAAeUrvSdO2IqD75li3kD0qv+IqfxQE9NLSa6BW1BPM/GRNEkw0WLUkH3YC6E0zQzQN4TS8zeFbTBAmDv3RnpYSgzELhlKqxUv1QMw49W9zylDo1B
+                T2Tg+AU9kSphcIQuamiliQqkrdrG26x3zCYbBNmISnZCQx3WBHPfwgKf7NTkJ0TBKOyJWweDC5ilMKRcNusRzBvMjR+EJyinTLWvlFr252vwgOCUwJ0jWuBwhYoKdMsOKixYeI7Jp6FhczKaSDLluxsBdrm3jYfGA8TmyAxpq0MCqhytPKSFDbiLk25/wD5
+                OnoOEuFyU8xFwu65HMC8Bd6Mt72nVFtG0YLCZsmSnn+xdc39N7zX0LB2JyU7C1zusLi4ub7t1oDvCNJweDC58lPIfr3XL772nGhRwhTO1OmqlmVSSAGANgQTztAe5gqDEH9l4a1+iS3G9t1okpUcI7OFp0yiqpLggrclt1+G4KD5wHR8Mp7JyOBXlExwWEyF
+                +jp5ACc4sVyjibicqGDovYjCWQ8GbIDbsOW97fGAtGAXlN0wajsiRcDhCWASmSv0gLXX+LfunNqOBGUZafXNlO4gkXvv8oDotFR2ToBGd8LhVRnaigClgLlOsRwsb2327Z0OBwoAL06a7r7yLW8eW+A63hEtLDUgAFRbdlrW3790IG7PDPOTcZozGRHYPMZ5w
+                JM5F4CzpO+IdJguoUc7nymj17RiraZVXIY239sDtiMJadNXgFqv/Bu98RVNM0yPpCccBpAhyyqSCLX4dsCbdLIbW69Z25uYtOk3+yYyJiyjnOpAve/jAf6WGuI+YN7Io5C0iI02g7TF+i9IlibA2/OBJg826SNyVrzsrwFeeZzRMHm4aB2DRpdHzs9KkyXR8yt
+                lAd7WSwBIzX+tyjpTO8RRKpkw+EZHpBFbqoqOSFy5ApIKniGzGcWwtTInUZbVKjOFVC1yzFDY7mG/5cpIbQtAZVwFjcIWCUmyBsu+q7FmBHAHqr3b
+                5yfR7oqCktnSg6htwJqsEAF+fVJj/MwGfA4e1RSKRSmlMqtwoYuzDMTbtso+M5ehu7ddeo1dna9v3aIFQHxIvHy0zAYjhWut6fVOIZ2UBdyhcqm3I2Uz
+                SlgqhZswbMHd1OWnkzb8hzfSIAIFu6SCaOoIIIuDuI7oEdRWDIi0iHSk7kHJmaqwyi9j2ktvJ3zumCNM0lFLMiIdwy/v+r1mv3X37+2OuHwlNPoKFvxsN5tzMU
+                wI/hsO6hM1IuRTuF6uVazMS+a53XuLHxhQwrU8uaiXtSRVACkCp1jUBuercld/dH+FoDNVwrrRpIQXVSvSKvFkAO4X4jNbdyiephKpzNkKg1sxVQjN0SoFTqncesL2
+                /SSKYgNFTAk0GVAczHOVfKCzZgxBC7he1vOYq9M7XRaiEI9wxAXPlsoABIJub37o8zECPUcCOjIdKubIEsFQEAm5ygHrbwLk3iijSctSapT3qj3sFsHJW1x2EheztMebQtAYaOHdSjPSL/s9yjKctZmLPe53XuBm7jCho9lHXQOUo5VG4g1GLMyi/ggj9MwEuj6GS
+                kiHiqgHxAmYphA4FBMdEO+EJEY9HXvmDQXvhCBo2GXvmjaOpHivwH6QhA0/sij9ge5f0mw0bT5fL9IQgHoFPlNv7Op9/wAP0hCADRlLl8v0gMIvfCEDZcMvfN/R174QgbdAO+ApiEIG6ILzrCEqiEIQCEIQCEIQCEIQCEIQCEIQCEIQCEIQCEIQCEIQCEIQP//Z" alt="Característica 2">
+                <h3>getion integrada</h3>
+                <p>La gestión integrada se enfoca en la implementación de normas
+                    internacionales, abordando de manera eficiente las necesidades cambiantes
+                    de las empresas. Este sistema busca la optimización de procesos, garantizando 
+                    la protección y mejora continua de los recursos. Los líderes de la organización
+                    desempeñan un papel crucial, orientando los propósitos y compromisos hacia los objetivos
+                    de cada área, lo que resulta fundamental para el éxito y la adaptabilidad de los sistemas
+                    de gestión en las empresas</p>
+            </div>
+        </div>
     </section>
-
+      <a>
+    <footer class="footer">
+        <p>Derechos de autor © 2023 SIG. Todos los derechos reservados.</p>
+    </footer>
 </body>
 
 </html>

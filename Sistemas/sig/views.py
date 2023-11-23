@@ -23,6 +23,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import ArchivoView
 
+#contraseña
 class CustomUserCreationForm(UserCreationForm):
     error_messages = {
         'password_mismatch': "Las contraseñas no coinciden.",
@@ -34,9 +35,8 @@ class CustomUserCreationForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Puedes personalizar los mensajes de error aquí si es necesario
-        # self.error_messages['some_error'] = "Some custom error message"
 
+#login ingreso a sig
 def login_view(request):
     error = None
 
@@ -55,7 +55,7 @@ def login_view(request):
     return render(request, 'login.html', {'form': form, 'error': error})
 
 
-
+#diferentes archivos que aparecen el la tabla
 class Archivo(models.Model):
     documento = models.FileField(upload_to='archivos/')
     fecha_creacion = models.DateTimeField(auto_now_add=True)
@@ -63,6 +63,7 @@ class Archivo(models.Model):
     def __str__(self):
         return self.documento.name
 
+#vista calidad y sus diferentes funciones
 def calidad(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
@@ -72,25 +73,29 @@ def calidad(request):
     else:
         form = DocumentForm()
 
-    archivos = ArchivoView.objects.all() 
+    archivos = ArchivoView.objects.all()  # Utiliza el modelo correcto
     return render(request, 'sitem/calidad.html', {'form': form, 'archivos': archivos})
 
+#subir documento 
 def serve_documento(request, archivo_path):
     return serve_static(request, path=archivo_path, insecure=True)
 
+#edicion de los diferentes documnetos 
 def editar_archivo(request, archivo_id):
-    archivo = get_object_or_404(ArchivoView, id=archivo_id)
+    archivo = get_object_or_404(Archivo, id=archivo_id)
 
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES, instance=archivo)
         if form.is_valid():
-            form.save()
+            form.save() 
             return redirect('calidad')
     else:
         form = DocumentForm(instance=archivo)
 
     return render(request, 'sitem/editar_archivo.html', {'form': form, 'archivo': archivo})
 
+
+#eliminacion de los archivos 
 def eliminar_archivo(request, archivo_id):
     archivo = get_object_or_404(ArchivoView, id=archivo_id)
 
@@ -99,9 +104,12 @@ def eliminar_archivo(request, archivo_id):
         return redirect('calidad')
 
     return render(request, 'sitem/eliminar_archivo.html', {'archivo': archivo})
+
+#vista principal
 def home(request):
     return render(request, 'home.html')
 
+#vista d eel logeo
 def signup(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -113,8 +121,9 @@ def signup(request):
 
     return render(request, 'signup.html', {'form': form})
 
+#generar reporte pdf arregrar el diseño
 def generar_reporte_pdf(request):
-    archivos = Archivo.objects.all()
+    archivos = ArchivoView.objects.all()  # Utiliza Archivo en lugar de ArchivoView
 
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="reporte.pdf"'
@@ -127,7 +136,7 @@ def generar_reporte_pdf(request):
     data = []
 
     # Agregar información del usuario
-    data.append(['Usuario que modificó los archivos o agrego :', user_name])
+    data.append(['Usuario que modificó los archivos o agregó:', user_name])
     data.append(['Documento', 'Fecha de Creación'])
 
     for archivo in archivos:
@@ -152,6 +161,7 @@ def generar_reporte_pdf(request):
 
     return response
 
+#sistema se seguridad y salud en el trabajo y us funciones 
 def sst(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
@@ -164,8 +174,10 @@ def sst(request):
     archivos = ArchivoView.objects.all() 
     return render(request, 'sitem/sst.html', {'form': form, 'archivos': archivos})
 
+#sistema de calidad y sus diferentes funciones
 def medioambiente(request):
     return render(request, 'sitem/medioambiente.html')
 
+#vista de las targetas para mandarlos a los diferentes istemas despues de su respectiva validaccion
 def sigS(request):
     return render(request, 'sigS.html')

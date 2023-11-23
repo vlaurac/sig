@@ -112,18 +112,22 @@
     <div class="container">
         <div class="sidebar">
             <h2>Menú</h2>
-            <a href="#">inicio</a>
-            <a href="#" class="sistemas-link">sistemas</a>
-            <a href="#">documentacion</a>
+            <a href="{%home}">inicio</a>
+            <a href="{%sigS}" class="sistemas-link">sistemas</a>
+            <a href="{%documentaccion}">documentacion</a>
         </div>
 
         <div class="content">
+            <div>
+                <h1>Sub sistemas </h1>
+            </div>
+
 
             <div class="card-container">
                 <a href="{% url 'calidad' %}" class="sistemas-card-link">
                     <div class="card">
                         <div class="card-inner">
-                            <div class="card-face front">Tarjeta 2</div>
+                            <div class="card-face front">calidad</div>
                             <div class="card-face back">
                                 <p>Información adicional 2</p>
                                 <p>Más detalles sobre la tarjeta 2.</p>
@@ -137,7 +141,7 @@
                 <a href="sitem/calidad.html" class="sistemas-card-link">
                     <div class="card">
                         <div class="card-inner">
-                            <div class="card-face front">Tarjeta 2</div>
+                            <div class="card-face front">sst</div>
                             <div class="card-face back">
                                 <p>Información adicional 2</p>
                                 <p>Más detalles sobre la tarjeta 2.</p>
@@ -151,7 +155,7 @@
                 <a href="sitem/calidad.html" class="sistemas-card-link">
                     <div class="card">
                         <div class="card-inner">
-                            <div class="card-face front">Tarjeta 2</div>
+                            <div class="card-face front">medio ambiente</div>
                             <div class="card-face back">
                                 <p>Información adicional 2</p>
                                 <p>Más detalles sobre la tarjeta 2.</p>

@@ -1,9 +1,9 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistemas</title>
     <style>
         body {
@@ -43,71 +43,55 @@
         .content {
             flex: 1;
             padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
         }
 
-        .card-container {
-            width: 200px;
-            height: 300px;
-            perspective: 1000px;
-            margin: 20px;
+        h1 {
+            color: #3498db;
         }
 
-        .card {
+        form {
+            margin-bottom: 20px;
+        }
+
+        .file-table {
             width: 100%;
-            height: 100%;
-            perspective: 1000px;
-            transition: transform 0.5s;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
 
-        .card:hover {
-            transform: rotateY(180deg);
+        .file-table th, .file-table td {
+            border: 1px solid #3498db;
+            padding: 8px;
+            text-align: left;
         }
 
-        .card-inner {
+        .footer {
+            background-color: #1a1e24;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
             width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-            transition: transform 0.5s;
         }
 
-        .card:hover .card-inner {
-            transform: rotateY(180deg);
+        .pdf-button {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
         }
 
-        .card-face {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            backface-visibility: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            color: #333;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .pdf-button:hover {
+            background-color: #c0392b;
         }
 
-        .front {
-            transform: rotateY(0deg);
-        }
-
-        .back {
-            transform: rotateY(180deg);
-        }
-
-        .card-face img {
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 10px;
-        }
-        /* ... (tu código CSS actual) ... */
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="sidebar">
@@ -115,19 +99,22 @@
             <a href="{% url 'home' %}">Inicio</a>
             <a href="{% url 'sigS' %}">Sistemas</a>
             <a href="{% url 'sst' %}">Documentación</a>
-         </div>
+        </div>
         <div class="content">
-
             {% block content %}
             <h1>Calidad</h1>
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form }}
-                <button type="submit">Subir documento</button>
-            </form>
+            
+            <!-- Formulario para subir documentos -->
+        <form method="post" enctype="multipart/form-data">
+           {% csrf_token %}
+           {{ form.as_p }}
+           <button type="submit">Subir documento</button>
+        </form>
 
             <h2>Archivos existentes:</h2>
-            <table>
+            
+            <!-- Tabla para mostrar archivos existentes -->
+            <table class="file-table">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -137,20 +124,26 @@
                 </thead>
                 <tbody>
                     {% for archivo in archivos %}
-                    <tr>
-                        <td>{{ archivo.id }}</td>
-                        <td>{{ archivo.documento.name }}</td>
-                        <td>
-                            <a href="{% url 'editar_archivo' archivo.id %}">Editar</a> |
-                            <a href="{% url 'eliminar_archivo' archivo.id %}">Eliminar</a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>{{ archivo.id }}</td>
+                            <td>{{ archivo.documento.name }}</td>
+                            <td>
+                                <a href="{% url 'editar_archivo' archivo.id %}">Editar</a> |
+                                <a href="{% url 'eliminar_archivo' archivo.id %}">Eliminar</a>
+                            </td>
+                        </tr>
                     {% endfor %}
                 </tbody>
             </table>
             <form method="get" action="{% url 'generar_reporte_pdf' %}" target="_blank">
-                <button type="submit">Generar Reporte PDF</button>
+                <button type="submit" class="pdf-button">
+                    PDF
+                </button>
             </form>
+
+            <footer class="footer">
+                <p>Derechos de autor © 2023 SIG. Todos los derechos reservados.</p>
+            </footer>
             {% endblock %}
         </div>
     </div>
