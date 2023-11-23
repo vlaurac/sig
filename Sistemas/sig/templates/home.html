@@ -108,6 +108,19 @@
             display: block;
             margin: 0 auto;
         }
+        button {
+           background-color: #4CAF50;
+           color: white;
+           padding: 10px 20px;
+           border: none;
+           border-radius: 5px;
+           cursor: pointer;
+        }
+
+        button:hover {
+           background-color: #45a049;
+        }
+
     </style>
 </head>
 
@@ -124,6 +137,9 @@
             <div class="text">el pilar de sig es cuidarse entre si</div>
         </div>
     </div>
+
+    <button onclick="window.location.href='{% url 'login' %}'">Login</button>
+
 
     <section>
         <h2>¿Qué es SIG?</h2>

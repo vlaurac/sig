@@ -1,4 +1,3 @@
-<!-- sigS.html -->
 <!DOCTYPE html>
 <html lang="es">
 
@@ -47,7 +46,6 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            
         }
 
         .card-container {
@@ -101,15 +99,16 @@
         .back {
             transform: rotateY(180deg);
         }
+
         .card-face img {
             max-width: 100%;
             max-height: 100%;
             border-radius: 10px;
-        }/* ... (tu código CSS actual) ... */
+        }
+        /* ... (tu código CSS actual) ... */
     </style>
 </head>
-
-<body>  
+<body>
     <div class="container">
         <div class="sidebar">
             <h2>Menú</h2>
@@ -121,7 +120,7 @@
         <div class="content">
 
             <div class="card-container">
-                <a href="sitem/calidad.html" class="sistemas-card-link">
+                <a href="{% url 'calidad' %}" class="sistemas-card-link">
                     <div class="card">
                         <div class="card-inner">
                             <div class="card-face front">Tarjeta 2</div>
@@ -133,19 +132,7 @@
                     </div>
                 </a>
             </div>
-            <div class="card-container">
-                <a href="sitem/calidad.html" class="sistemas-card-link">
-                    <div class="card">
-                        <div class="card-inner">
-                            <div class="card-face front">Tarjeta 2</div>
-                            <div class="card-face back">
-                                <p>Información adicional 2</p>
-                                <p>Más detalles sobre la tarjeta 2.</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+
             <div class="card-container">
                 <a href="sitem/calidad.html" class="sistemas-card-link">
                     <div class="card">
@@ -160,7 +147,19 @@
                 </a>
             </div>
 
-            <!-- Otras tarjetas similares... -->
+            <div class="card-container">
+                <a href="sitem/calidad.html" class="sistemas-card-link">
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="card-face front">Tarjeta 2</div>
+                            <div class="card-face back">
+                                <p>Información adicional 2</p>
+                                <p>Más detalles sobre la tarjeta 2.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
         </div>
     </div>
@@ -190,7 +189,7 @@
             });
         });
     </script>
-    
+
 </body>
 
 </html>

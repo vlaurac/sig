@@ -79,7 +79,7 @@ def serve_documento(request, archivo_path):
     return serve_static(request, path=archivo_path, insecure=True)
 
 def editar_archivo(request, archivo_id):
-    archivo = get_object_or_404(Archivo, id=archivo_id)
+    archivo = get_object_or_404(ArchivoView, id=archivo_id)
 
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES, instance=archivo)
@@ -90,15 +90,15 @@ def editar_archivo(request, archivo_id):
         form = DocumentForm(instance=archivo)
 
     return render(request, 'sitem/editar_archivo.html', {'form': form, 'archivo': archivo})
+
 def eliminar_archivo(request, archivo_id):
-    archivo = get_object_or_404(Archivo, id=archivo_id)
+    archivo = get_object_or_404(ArchivoView, id=archivo_id)
 
     if request.method == 'POST':
         archivo.delete()
         return redirect('calidad')
 
     return render(request, 'sitem/eliminar_archivo.html', {'archivo': archivo})
-
 def home(request):
     return render(request, 'home.html')
 
@@ -121,7 +121,7 @@ def generar_reporte_pdf(request):
 
     # Acceder al usuario actual
     user = request.user if request.user.is_authenticated else None
-    user_name = user.username if user else 'Anónimo'
+    user_name = user.username if user else ''
 
     pdf = SimpleDocTemplate(response, pagesize=letter)
     data = []
